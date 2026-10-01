@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 與經濟研究報告 - 首頁</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #eff6ff;
+            --secondary-color: #0f172a;
+            --accent-color: #06b6d4;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Hero Header */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 45px 25px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background-color: rgba(6, 182, 212, 0.15);
+            color: var(--accent-color);
+            font-weight: 600;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            max-width: 750px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary-color);
+        }
+
+        /* Grid Layout */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        /* Module Card */
+        .module-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+        }
+
+        .module-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(37, 99, 235, 0.4);
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .card-tag {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .card-link {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.2s ease;
+        }
+
+        .module-card:hover .card-link {
+            gap: 12px;
+            color: var(--primary-dark);
+        }
+
+        /* Coming Soon Card Style */
+        .module-card.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .module-card.disabled:hover {
+            transform: none;
+            box-shadow: var(--shadow);
+            border-color: var(--border-color);
+        }
+
+        .module-card.disabled .card-icon {
+            background: #94a3b8;
+            box-shadow: none;
+        }
+
+        .module-card.disabled .card-link {
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header / Hero Section -->
+        <header>
+            <span class="badge"><i class="fa-solid fa-microchip"></i> 經濟學實證與專題研究 Portal</span>
+            <h1>AI 與經濟研究報告</h1>
+            <p class="intro-text">
+                探索人工智慧技術對整體經濟、勞動力市場結構、薪資成長與通膨動態傳導機制之深度實證研究與分析報告。
+            </p>
+        </header>
+
+        <!-- Main Research Topics -->
+        <div class="section-title">
+            <i class="fa-solid fa-book-bookmark"></i> 研究專題列表
+        </div>
+
+        <div class="modules-grid">
+            
+            <!-- Target Card: 連結至 通膨與薪資.html -->
+            <a href="通膨與薪資.html" class="module-card">
+                <div>
+                    <div class="card-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div class="card-tag">實證專題 01</div>
+                    <h2 class="card-title">通膨與薪資研究</h2>
+                    <p class="card-desc">
+                        針對通膨與薪資領域，探討 AI 時代下的「技能溢價」與非對稱通膨傳導，以及「薪資—物價螺旋」在數位轉型期的制約效應。
+                    </p>
+                </div>
+                <div class="card-link">
+                    查看完整報告 <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 預留位置：擴充專題卡片 2 -->
+            <div class="module-card disabled">
+                <div>
+                    <div class="card-icon">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div class="card-tag">實證專題 02</div>
+                    <h2 class="card-title">AI 勞動力替代與衝擊</h2>
+                    <p class="card-desc">
+                        分析生成式 AI 對不同產業就業結構、技能需求與中低階勞工就業替代的衝擊。（內容準備中）
+                    </p>
+                </div>
+                <div class="card-link">
+                    內容籌備中 <i class="fa-solid fa-lock"></i>
+                </div>
+            </div>
+
+            <!-- 預留位置：擴充專題卡片 3 -->
+            <div class="module-card disabled">
+                <div>
+                    <div class="card-icon">
+                        <i class="fa-solid fa-building-columns"></i>
+                    </div>
+                    <div class="card-tag">實證專題 03</div>
+                    <h2 class="card-title">生產力與貨幣政策</h2>
+                    <p class="card-desc">
+                        評估數位轉型引發的總體生產力提升對中央銀行利率決策與經濟成長之影響。（內容準備中）
+                    </p>
+                </div>
+                <div class="card-link">
+                    內容籌備中 <i class="fa-solid fa-lock"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>AI 與經濟研究報告 Portal &copy; 2026</p>
+        </footer>
+    </div>
+
+</body>
+</html>
