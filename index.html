@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學術專題研究題目設計 - 通膨與薪資領域</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #eff6ff;
+            --secondary-color: #0f172a;
+            --accent-color: #06b6d4;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            font-weight: 600;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .highlight-text {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Topics Grid */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Topic Card */
+        .topic-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 35px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .topic-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+        }
+
+        .topic-tag {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .topic-title {
+            font-size: 1.35rem;
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        /* Innovation Box */
+        .innovation-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            margin-top: auto;
+        }
+
+        .innovation-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .innovation-desc {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        /* Database Banner */
+        .db-banner {
+            margin-top: 40px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow);
+        }
+
+        .db-banner-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .db-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+        }
+
+        .db-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .db-text p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <span class="badge"><i class="fa-solid =>-microchip"></i> 核心領域：通膨與薪資</span>
+            <h1>🏛️ 任務一：學術專題研究題目設計</h1>
+            <p class="intro-text">
+                跳脫傳統「通膨吃掉薪資」的單純落後因果關係，導入 <span class="highlight-text">AI 時代下勞動力結構質變</span> 與 <span class="highlight-text">非對稱性傳導</span> 的視角，打造兼具創新性、學術規範與可行性的研究題目。
+            </p>
+        </header>
+
+        <!-- Topics Section -->
+        <div class="topics-grid">
+            
+            <!-- Topic 1 -->
+            <div class="topic-card">
+                <div class="card-header">
+                    <div class="topic-number">01</div>
+                    <div>
+                        <span class="topic-tag">結構轉型視角</span>
+                    </div>
+                </div>
+                <h2 class="topic-title">
+                    「AI 浪潮下的『技能溢價』與非對稱通膨傳導：台灣受僱員工總薪資與 CPI 互動關係之實證研究」
+                </h2>
+                <div class="innovation-box">
+                    <div class="innovation-title">
+                        <i class="fa-solid fa-lightbulb"></i> 創新點解析
+                    </div>
+                    <p class="innovation-desc">
+                        傳統經濟學認為通膨會全面性地對薪資產生衝擊。本研究創新在於探討在 <strong>AI 技術爆發期（2023-2026年）</strong>，高技能勞工（如數位轉型、半導體人才）的薪資增長是否遠超 CPI 增幅，而中低技能勞工是否面臨更嚴重的「實質薪資停滯」，進而拉大薪資不平等。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Topic 2 -->
+            <div class="topic-card">
+                <div class="card-header">
+                    <div class="topic-number">02</div>
+                    <div>
+                        <span class="topic-tag">動態反饋視角</span>
+                    </div>
+                </div>
+                <h2 class="topic-title">
+                    「台灣『薪資—物價螺旋（Wage-Price Spiral）』在 AI 數位轉型期的制約效應與非線性實證分析」
+                </h2>
+                <div class="innovation-box">
+                    <div class="innovation-title">
+                        <i class="fa-solid fa-lightbulb"></i> 創新點解析
+                    </div>
+                    <p class="innovation-desc">
+                        研究當企業普遍導入 AI 與自動化後，能否藉由<strong>「生產力提升」</strong>來吸收勞動成本的上升，從而打破傳統經濟學中「薪資上漲帶動通膨，通膨再推升薪資」的惡性螺旋？這能為央行的貨幣政策提供關鍵的實證依據。
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Database Support Banner -->
+        <div class="db-banner">
+            <div class="db-banner-content">
+                <i class="fa-solid fa-database db-icon"></i>
+                <div class="db-text">
+                    <h4>資料庫指標緊密對接</h4>
+                    <p>上述題目皆緊扣 AREMOS 資料庫核心指標（受僱員工總薪資、消費者物價指數 CPI）。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>學術專題研究規劃網頁 &copy; 2026</p>
+        </footer>
+    </div>
+
+</body>
+</html>
